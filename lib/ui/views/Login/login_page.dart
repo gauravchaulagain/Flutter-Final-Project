@@ -67,7 +67,7 @@ class _SignInPageState extends State<SignInPage> {
           ),
           actions: [
             TextButton(
-              child: TextFrave(text: 'Register', fontSize: 18, color: Color(0xff0C6CF2),),
+              child: TextFrave(text: 'Register', fontSize: 18, color: Color.fromARGB(255, 236, 18, 54),),
               onPressed: () => Navigator.of(context).pushReplacementNamed('signUpPage'),
             )
           ],

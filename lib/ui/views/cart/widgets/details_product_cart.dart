@@ -1,12 +1,13 @@
-import 'package:e_commers/ui/widgets/shimmer_frave.dart';
+import 'package:e_commers/ui/widgets/shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_commers/Bloc/product/product_bloc.dart';
 import 'package:e_commers/service/urls.dart';
 import 'package:e_commers/ui/widgets/widgets.dart';
-import 'package:e_commers/ui/themes/colors_frave.dart';
+import 'package:e_commers/ui/themes/colors.dart';
 
-class DetailsProductsCart extends StatelessWidget {
+
+class DetailsProductsCart extends StatelessWidget  {
 
   const DetailsProductsCart({Key? key}):super(key: key);
 

@@ -13,7 +13,7 @@ const generarJsonWebToken = ( uidPerson ) => {
         }, ( err, token ) => {
 
             if( !err ){ resolve( token ); }
-            else { reject( 'No se puedo generar el Token' ); }
+            else { reject( "You can't generate the Token" ); }
 
         });
 
