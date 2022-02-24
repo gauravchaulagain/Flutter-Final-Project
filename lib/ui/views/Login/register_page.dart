@@ -75,18 +75,18 @@ class _SignUpPageState extends State<SignUpPage> {
         }
       },
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.black,
           elevation: 0,
           leading: IconButton(
             splashRadius: 20,
-            icon: const Icon(Icons.close_rounded, color: Colors.black,),
+            icon: const Icon(Icons.close_rounded, color: Colors.white,),
             onPressed: () => Navigator.pop(context),
           ),
           actions: [
             TextButton(
-              child: const TextFrave(text: 'Log In', fontSize: 17, color: ColorsFrave.primaryColorFrave ),
+              child: const TextFrave(text: 'Log In', fontSize: 20, color: ColorsFrave.primaryColorFrave ),
               onPressed: () => Navigator.of(context).pushReplacementNamed('signInPage'),
             ),
             SizedBox(width: 5)
@@ -99,9 +99,9 @@ class _SignUpPageState extends State<SignUpPage> {
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             physics: BouncingScrollPhysics(),
             children: [
-              TextFrave(text: 'Welcome to Frave Shop', fontSize: 24, fontWeight: FontWeight.w600),
+              TextFrave(text: 'Welcome to BooksMandala', fontSize: 24, fontWeight: FontWeight.w600,color: Colors.white),
               SizedBox(height: 5.0),
-              TextFrave(text: 'Create Account', fontSize: 17),
+              TextFrave(text: 'Create Account', fontSize: 17,color: Colors.white),
               SizedBox(height: 20.0),
               TextFormFrave(
                 hintText: 'Username',
@@ -139,7 +139,7 @@ class _SignUpPageState extends State<SignUpPage> {
               Row(
                 children: const [
                   Icon(Icons.check_circle_rounded, color: Color(0xff0C6CF2)),
-                  TextFrave(text: ' I Agree to Frave Shop ', fontSize: 15,),
+                  TextFrave(text: ' I Agree to BooksMandala ', fontSize: 15,color: Colors.white),
                   TextFrave(text: ' Terms of Use', fontSize: 15, fontWeight: FontWeight.bold, color: Color(0xff0C6CF2)),
                 ],
               ),
