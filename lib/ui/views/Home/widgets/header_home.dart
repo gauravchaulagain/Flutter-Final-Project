@@ -11,7 +11,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HeaderHome extends StatelessWidget {
-
   const HeaderHome({Key? key}) : super(key: key);
 
   @override
@@ -22,40 +21,49 @@ class HeaderHome extends StatelessWidget {
         children: [
           FadeInLeft(
             child: BlocBuilder<UserBloc, UserState>(
-              buildWhen: (previous, current) => previous != current,
-              builder: (context, state) 
-              => state.user != null
-              ? Row(
-                  children: [
-                    state.user!.image != ''
-                    ? CircleAvatar(
-                        radius: 20,
-                        backgroundImage: NetworkImage(URLS.baseUrl + state.user!.image),
+                buildWhen: (previous, current) => previous != current,
+                builder: (context, state) => state.user != null
+                    ? Row(
+                        children: [
+                          state.user!.image != ''
+                              ? CircleAvatar(
+                                  radius: 20,
+                                  backgroundImage: NetworkImage(
+                                      URLS.baseUrl + state.user!.image),
+                                )
+                              : CircleAvatar(
+                                  radius: 20,
+                                  backgroundColor:
+                                      ColorsFrave.primaryColorFrave,
+                                  child: TextGaurav(
+                                    text: state.user!.users
+                                        .substring(0, 2)
+                                        .toUpperCase(),
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                          const SizedBox(width: 5.0),
+                          TextGaurav(
+                            text: state.user!.users,
+                            fontSize: 18,
+                          )
+                        ],
                       )
-                    : CircleAvatar(
-                      radius: 20,
-                      backgroundColor: ColorsFrave.primaryColorFrave,
-                      child: TextFrave(text: state.user!.users.substring(0,2).toUpperCase(), fontWeight: FontWeight.bold, color: Colors.white,),
-                    ),
-                    const SizedBox(width: 5.0),
-                    TextFrave(text: state.user!.users, fontSize: 18,)
-                  ],
-              )
-              : const SizedBox()
-            ),
+                    : const SizedBox()),
           ),
           InkWell(
             borderRadius: BorderRadius.circular(20.0),
-            onTap: () => Navigator.of(context).pushAndRemoveUntil(routeSlide(page: CartPage()), (_) => false),
+            onTap: () => Navigator.of(context)
+                .pushAndRemoveUntil(routeSlide(page: CartPage()), (_) => false),
             child: Stack(
               children: [
                 FadeInRight(
-                  child: Container(
-                    height: 32,
-                    width: 32,
-                    child: SvgPicture.asset('Assets/bolso-negro.svg', height: 25 )
-                  )
-                ),
+                    child: Container(
+                        height: 32,
+                        width: 32,
+                        child: SvgPicture.asset('Assets/bolso-negro.svg',
+                            height: 25))),
                 Positioned(
                   left: 0,
                   top: 12,
@@ -64,17 +72,19 @@ class HeaderHome extends StatelessWidget {
                       height: 20,
                       width: 20,
                       decoration: BoxDecoration(
-                        color: ColorsFrave.primaryColorFrave,
-                        shape: BoxShape.circle
-                      ),
+                          color: ColorsFrave.primaryColorFrave,
+                          shape: BoxShape.circle),
                       child: Center(
-                        child: BlocBuilder<ProductBloc, ProductState>(
-                          builder: (context, state) 
-                            => state.amount == 0 
-                              ? TextFrave(text: '0', color: Colors.white, fontWeight: FontWeight.bold )
-                              : TextFrave(text: '${state.products!.length}', color: Colors.white, fontWeight: FontWeight.bold )
-                        )
-                      ),
+                          child: BlocBuilder<ProductBloc, ProductState>(
+                              builder: (context, state) => state.amount == 0
+                                  ? TextGaurav(
+                                      text: '0',
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold)
+                                  : TextGaurav(
+                                      text: '${state.products!.length}',
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold))),
                     ),
                   ),
                 )

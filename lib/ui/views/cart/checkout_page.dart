@@ -43,7 +43,7 @@ class CheckOutPage extends StatelessWidget{
         backgroundColor: Color(0xfff3f4f8),
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: const TextFrave(text: 'Checkout', color: Colors.black, fontSize: 21, fontWeight: FontWeight.bold),
+          title: const TextGaurav(text: 'Checkout', color: Colors.black, fontSize: 21, fontWeight: FontWeight.bold),
           centerTitle: true,
           elevation: 0,
           leading: IconButton(
@@ -67,9 +67,9 @@ class CheckOutPage extends StatelessWidget{
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
-                  TextFrave(text: 'Delivery Details', fontSize: 19, fontWeight: FontWeight.w600 ),
+                  TextGaurav(text: 'Delivery Details', fontSize: 19, fontWeight: FontWeight.w600 ),
                   Divider(),
-                  TextFrave(text: 'Stander Delivery (3-4 days)', fontSize: 18),
+                  TextGaurav(text: 'Stander Delivery (3-4 days)', fontSize: 18),
                 ],
               ),
             ),
@@ -86,8 +86,8 @@ class CheckOutPage extends StatelessWidget{
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const TextFrave(text: 'Total', fontSize: 19,),
-                  TextFrave(text: '\$ ${productBloc.state.total}', fontSize: 19,)
+                  const TextGaurav(text: 'Total', fontSize: 19,),
+                  TextGaurav(text: '\$ ${productBloc.state.total}', fontSize: 19,)
                 ],
               ),
             ),

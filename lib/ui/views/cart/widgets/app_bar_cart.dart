@@ -28,7 +28,7 @@ class AppBarCart extends StatelessWidget {
               ),
               const SizedBox(width: 20.0),
               Container(
-                child: const TextFrave(text: 'My Cart', fontSize: 24, fontWeight: FontWeight.w600 )
+                child: const TextGaurav(text: 'My Cart', fontSize: 24, fontWeight: FontWeight.w600 )
               ),
             ],
           ),
@@ -37,8 +37,8 @@ class AppBarCart extends StatelessWidget {
             child: BlocBuilder<ProductBloc, ProductState>(
               builder: (_, state) 
               => state.products != null
-              ? TextFrave(text: '${state.products!.length} items', fontSize: 19, color: Colors.black54 )
-              : TextFrave(text: '0 items', fontSize: 19, color: Colors.black54 )
+              ? TextGaurav(text: '${state.products!.length} items', fontSize: 19, color: Colors.black54 )
+              : TextGaurav(text: '0 items', fontSize: 19, color: Colors.black54 )
             )
           ),
         ],

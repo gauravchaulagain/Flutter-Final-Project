@@ -22,24 +22,24 @@ class OrderDetails extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const TextFrave(text: 'Order', fontSize: 19,),
-              TextFrave(text: '\$ ${productBloc.state.total}', fontSize: 19,)
+              const TextGaurav(text: 'Order', fontSize: 19,),
+              TextGaurav(text: '\$ ${productBloc.state.total}', fontSize: 19,)
             ],
           ),
           const SizedBox(height: 10.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const TextFrave(text: 'Delivery', fontSize: 19,),
-              TextFrave(text: '\$ ${productBloc.state.delivery}', fontSize: 19,)
+              const TextGaurav(text: 'Delivery', fontSize: 19,),
+              TextGaurav(text: '\$ ${productBloc.state.delivery}', fontSize: 19,)
             ],
           ),
           const SizedBox(height: 10.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const TextFrave(text: 'Insurance', fontSize: 19,),
-              TextFrave(text: '\$ ${productBloc.state.insurance}', fontSize: 19,)
+              const TextGaurav(text: 'Insurance', fontSize: 19,),
+              TextGaurav(text: '\$ ${productBloc.state.insurance}', fontSize: 19,)
             ],
           ),
         ],

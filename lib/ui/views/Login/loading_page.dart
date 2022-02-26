@@ -81,7 +81,7 @@ class _LoadingPageState extends State<LoadingPage> with TickerProviderStateMixin
                   ),
                 ),
                 const SizedBox(height: 10.0),
-                const TextFrave(text: 'Verifying your device...', color: Colors.white60 )
+                const TextGaurav(text: 'Verifying your device...', color: Colors.white60 )
               ],
             ),
           )

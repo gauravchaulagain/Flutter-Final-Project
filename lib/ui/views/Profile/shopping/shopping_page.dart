@@ -15,7 +15,7 @@ class ShoppingPage extends StatelessWidget {
       backgroundColor: Color(0xfff5f5f5),
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const TextFrave(
+        title: const TextGaurav(
             text: 'Purchased',
             color: Colors.black87,
             fontWeight: FontWeight.w500,
@@ -68,7 +68,7 @@ class _DetailsProductsBuy extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextFrave(
+              TextGaurav(
                   text: ordersBuy[i].receipt,
                   fontSize: 21,
                   color: ColorsFrave.primaryColorFrave,
@@ -77,9 +77,9 @@ class _DetailsProductsBuy extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const TextFrave(
+                  const TextGaurav(
                       text: 'Date ', fontSize: 18, color: Colors.grey),
-                  TextFrave(
+                  TextGaurav(
                       text:
                           timeago.format(ordersBuy[i].createdAt, locale: 'es'),
                       fontSize: 18),
@@ -89,9 +89,9 @@ class _DetailsProductsBuy extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const TextFrave(
+                  const TextGaurav(
                       text: 'Amount ', fontSize: 18, color: Colors.grey),
-                  TextFrave(
+                  TextGaurav(
                       text: '\$ ${ordersBuy[i].amount}',
                       fontSize: 20,
                       fontWeight: FontWeight.w500),

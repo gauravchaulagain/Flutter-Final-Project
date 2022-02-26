@@ -42,10 +42,10 @@ class CartPage extends StatelessWidget{
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const TextFrave(text: 'Total', fontSize: 23, fontWeight: FontWeight.w500 ),
+                        const TextGaurav(text: 'Total', fontSize: 23, fontWeight: FontWeight.w500 ),
                         BlocBuilder<ProductBloc, ProductState>(
                           builder: (context, state) 
-                            => TextFrave(text: '\$ ${state.total.toStringAsFixed(2) }', fontSize: 24, fontWeight: FontWeight.bold, color: Color(0xff0C6CF2)),
+                            => TextGaurav(text: '\$ ${state.total.toStringAsFixed(2) }', fontSize: 24, fontWeight: FontWeight.bold, color: Color(0xff0C6CF2)),
                         )
                         
                       ],

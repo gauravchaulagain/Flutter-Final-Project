@@ -63,7 +63,7 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                     child: Wrap(
                       children: [
-                        TextFrave(
+                        TextGaurav(
                             text: widget.product.nameProduct,
                             fontSize: 25,
                             fontWeight: FontWeight.bold)
@@ -105,7 +105,7 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                       decoration: BoxDecoration(
                           color: Color(0xff8956FF),
                           borderRadius: BorderRadius.circular(5.0)),
-                      child: const TextFrave(
+                      child: const TextGaurav(
                           text: 'Shipping normally',
                           fontSize: 18,
                           color: Colors.white),
@@ -117,11 +117,11 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                     child: SizedBox(
                       child: Row(
                         children: const [
-                          TextFrave(
+                          TextGaurav(
                               text: 'Available. ',
                               fontSize: 18,
                               color: Colors.green),
-                          TextFrave(
+                          TextGaurav(
                             text: 'In Stock',
                             fontSize: 18,
                           ),
@@ -132,7 +132,7 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                   const SizedBox(height: 20.0),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: const TextFrave(
+                    child: const TextGaurav(
                         text: 'Description',
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
@@ -142,7 +142,7 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
                     child: Wrap(
                       children: [
-                        TextFrave(
+                        TextGaurav(
                             text: widget.product.description, fontSize: 17)
                       ],
                     ),
@@ -150,7 +150,7 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                   const SizedBox(height: 30.0),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: const TextFrave(
+                    child: const TextGaurav(
                         text: 'Payment methods',
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
@@ -198,7 +198,7 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                         alignment: Alignment.center,
                         height: 55,
                         width: size.width * .45,
-                        child: TextFrave(
+                        child: TextGaurav(
                             text: '\$ ${widget.product.price}',
                             fontSize: 22,
                             fontWeight: FontWeight.bold),
@@ -214,7 +214,7 @@ class _DetailsProductPageState extends State<DetailsProductPage> {
                           style: TextButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(50.0))),
-                          child: const TextFrave(
+                          child: const TextGaurav(
                               text: 'Add to cart',
                               fontSize: 20,
                               color: Colors.white,

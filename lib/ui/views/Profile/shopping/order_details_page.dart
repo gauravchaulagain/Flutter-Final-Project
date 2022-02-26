@@ -62,7 +62,7 @@ class _ListOrderDetails extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Flexible(
-                        child: TextFrave(
+                        child: TextGaurav(
                             text: orderDetails[i].nameProduct.toUpperCase(),
                             fontSize: 19,
                             overflow: TextOverflow.ellipsis,
@@ -79,12 +79,12 @@ class _ListOrderDetails extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            TextFrave(
+                            TextGaurav(
                               text: 'Price: \$ ${orderDetails[i].price}',
                               fontSize: 20,
                             ),
                             const SizedBox(height: 5.0),
-                            TextFrave(
+                            TextGaurav(
                                 text: 'Quantity: ${orderDetails[i].quantity}',
                                 fontSize: 20),
                           ],

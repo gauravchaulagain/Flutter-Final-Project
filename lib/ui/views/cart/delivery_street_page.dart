@@ -67,7 +67,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: const TextFrave(text: 'Street Address', color: Colors.black, fontSize: 21, fontWeight: FontWeight.bold ),
+          title: const TextGaurav(text: 'Street Address', color: Colors.black, fontSize: 21, fontWeight: FontWeight.bold ),
           centerTitle: true,
           elevation: 0,
           leading: IconButton(
@@ -97,7 +97,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              TextFrave(text: '${state.user!.address}', fontSize: 18,),
+                              TextGaurav(text: '${state.user!.address}', fontSize: 18,),
                               Icon(Icons.radio_button_checked_rounded, size: 31, color: Colors.blue )
                             ],
                           ),
@@ -107,7 +107,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
                 ),
         
                 const SizedBox(height: 10.0),
-                TextFormFrave(
+                TextFormGaurav(
                   controller: _streetAddress,
                   hintText: 'Street Address', 
                   prefixIcon: const Icon(Icons.location_city_rounded),
@@ -115,7 +115,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
                 ),
         
                 const SizedBox(height: 20.0),
-                TextFormFrave(
+                TextFormGaurav(
                   controller: _referenceController,
                   hintText: 'Reference',
                   prefixIcon: const Icon(Icons.location_on_outlined),
@@ -123,7 +123,7 @@ class _DeliveryPageState extends State<DeliveryPage> {
                 ),
         
                 const SizedBox(height: 20.0),
-                TextFormFrave(
+                TextFormGaurav(
                   controller: _zipCodeController,
                   hintText: 'Zip code', 
                   prefixIcon: const Icon(Icons.location_searching_rounded),

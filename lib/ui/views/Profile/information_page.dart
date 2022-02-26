@@ -64,7 +64,7 @@ class _InformationPageState extends State<InformationPage> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          title: const TextFrave(
+          title: const TextGaurav(
               text: 'My Profile',
               color: Colors.black,
               fontWeight: FontWeight.w500),
@@ -87,7 +87,7 @@ class _InformationPageState extends State<InformationPage> {
                       _addressController.text.trim(),
                       _referenceController.text.trim()));
                 },
-                child: const TextFrave(
+                child: const TextGaurav(
                   text: 'Save',
                   color: ColorsFrave.primaryColorFrave,
                   fontSize: 18,
@@ -101,7 +101,7 @@ class _InformationPageState extends State<InformationPage> {
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
             children: [
-              const TextFrave(text: 'Account data', fontSize: 18),
+              const TextGaurav(text: 'Account data', fontSize: 18),
               const SizedBox(height: 10.0),
               BlocBuilder<UserBloc, UserState>(
                   buildWhen: (previous, current) => previous != current,
@@ -120,11 +120,11 @@ class _InformationPageState extends State<InformationPage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  const TextFrave(
+                                  const TextGaurav(
                                       text: 'User',
                                       fontSize: 18,
                                       fontWeight: FontWeight.w500),
-                                  TextFrave(
+                                  TextGaurav(
                                       text: state.user!.users, fontSize: 18),
                                 ],
                               ),
@@ -133,11 +133,11 @@ class _InformationPageState extends State<InformationPage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  const TextFrave(
+                                  const TextGaurav(
                                       text: 'Email',
                                       fontSize: 18,
                                       fontWeight: FontWeight.w500),
-                                  TextFrave(
+                                  TextGaurav(
                                       text: state.user!.email, fontSize: 18),
                                 ],
                               ),
@@ -146,35 +146,35 @@ class _InformationPageState extends State<InformationPage> {
                         )
                       : const ShimmerFrave()),
               const SizedBox(height: 30.0),
-              const TextFrave(text: 'Personal Information', fontSize: 18),
+              const TextGaurav(text: 'Personal Information', fontSize: 18),
               const SizedBox(height: 10.0),
-              TextFormFrave(
+              TextFormGaurav(
                 controller: _firstnameController,
                 hintText: 'Enter your First Name',
                 prefixIcon: const Icon(Icons.person_outline_rounded),
               ),
               const SizedBox(height: 20.0),
-              TextFormFrave(
+              TextFormGaurav(
                 controller: _lastnameController,
                 hintText: 'Enter Last Name',
                 prefixIcon: const Icon(Icons.person_outline_rounded),
               ),
               const SizedBox(height: 20.0),
-              TextFormFrave(
+              TextFormGaurav(
                 controller: _phoneController,
                 hintText: 'Enter your Phone Number',
                 prefixIcon: const Icon(Icons.phone_android_rounded),
                 keyboardType: TextInputType.phone,
               ),
               const SizedBox(height: 20.0),
-              TextFormFrave(
+              TextFormGaurav(
                 controller: _addressController,
                 hintText: 'Street Address',
                 prefixIcon: const Icon(Icons.home_outlined),
                 keyboardType: TextInputType.streetAddress,
               ),
               const SizedBox(height: 20.0),
-              TextFormFrave(
+              TextFormGaurav(
                 controller: _referenceController,
                 hintText: 'Reference',
                 prefixIcon: const Icon(Icons.home_outlined),

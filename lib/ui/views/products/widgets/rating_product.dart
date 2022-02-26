@@ -22,7 +22,7 @@ class RatingProduct extends StatelessWidget {
               itemBuilder: (context, _) => const Icon( Icons.star, color: Colors.amber),
             ),
           ),
-          const TextFrave(text: '124 Reviews', fontSize: 17, color: Colors.grey)
+          const TextGaurav(text: '124 Reviews', fontSize: 17, color: Colors.grey)
         ],
       ),
     );

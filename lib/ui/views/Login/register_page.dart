@@ -8,14 +8,12 @@ import 'package:e_commers/ui/Views/Login/login_page.dart';
 import 'package:e_commers/ui/themes/colors.dart';
 import 'package:e_commers/ui/widgets/widgets.dart';
 
-
 class SignUpPage extends StatefulWidget {
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-
   late TextEditingController userController;
   late TextEditingController emailController;
   late TextEditingController passowrdController;
@@ -41,7 +39,7 @@ class _SignUpPageState extends State<SignUpPage> {
     super.dispose();
   }
 
-  void clear(){
+  void clear() {
     userController.clear();
     emailController.clear();
     passowrdController.clear();
@@ -50,44 +48,47 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-
     final userBloc = BlocProvider.of<UserBloc>(context);
     final size = MediaQuery.of(context).size;
 
     return BlocListener<UserBloc, UserState>(
       listener: (context, state) {
-        if( state is LoadingUserState ){
-
+        if (state is LoadingUserState) {
           modalLoading(context, 'Validating...');
         }
-        if( state is SuccessUserState ){
-          
+        if (state is SuccessUserState) {
           Navigator.of(context).pop();
-          modalSuccess(context,'USER CREATED', onPressed: (){
+          modalSuccess(context, 'USER CREATED', onPressed: () {
             clear();
             Navigator.pushReplacement(context, routeSlide(page: SignInPage()));
           });
         }
-        if( state is FailureUserState ){
-
+        if (state is FailureUserState) {
           Navigator.of(context).pop();
           errorMessageSnack(context, state.error);
         }
       },
       child: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.white,
           elevation: 0,
           leading: IconButton(
             splashRadius: 20,
-            icon: const Icon(Icons.close_rounded, color: Colors.white,),
+            icon: const Icon(
+              Icons.close_rounded,
+              color: Colors.black,
+            ),
             onPressed: () => Navigator.pop(context),
           ),
           actions: [
             TextButton(
-              child: const TextFrave(text: 'Log In', fontSize: 20, color: ColorsFrave.primaryColorFrave ),
-              onPressed: () => Navigator.of(context).pushReplacementNamed('signInPage'),
+              child: const TextGaurav(
+                  text: 'Log In',
+                  fontSize: 17,
+                  color: ColorsFrave.primaryColorFrave),
+              onPressed: () =>
+                  Navigator.of(context).pushReplacementNamed('signInPage'),
             ),
             SizedBox(width: 5)
           ],
@@ -99,27 +100,28 @@ class _SignUpPageState extends State<SignUpPage> {
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             physics: BouncingScrollPhysics(),
             children: [
-              TextFrave(text: 'Welcome to BooksMandala', fontSize: 24, fontWeight: FontWeight.w600,color: Colors.white),
+              TextGaurav(
+                  text: 'Welcome to BookMandala',
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600),
               SizedBox(height: 5.0),
-              TextFrave(text: 'Create Account', fontSize: 17,color: Colors.white),
+              TextGaurav(text: 'Create Account', fontSize: 17),
               SizedBox(height: 20.0),
-              TextFormFrave(
+              TextFormGaurav(
                 hintText: 'Username',
                 prefixIcon: Icon(Icons.person),
                 controller: userController,
                 validator: RequiredValidator(errorText: 'Username is required'),
               ),
-              
               SizedBox(height: 15.0),
-              TextFormFrave(
-                hintText: 'Email Address',
-                keyboardType: TextInputType.emailAddress,
-                prefixIcon: Icon(Icons.email_outlined),
-                controller: emailController,
-                validator: validatedEmail
-              ),
+              TextFormGaurav(
+                  hintText: 'Email Address',
+                  keyboardType: TextInputType.emailAddress,
+                  prefixIcon: Icon(Icons.email_outlined),
+                  controller: emailController,
+                  validator: validatedEmail),
               SizedBox(height: 15.0),
-              TextFormFrave(
+              TextFormGaurav(
                 hintText: 'Password',
                 prefixIcon: Icon(Icons.vpn_key_rounded),
                 isPassword: true,
@@ -127,44 +129,47 @@ class _SignUpPageState extends State<SignUpPage> {
                 validator: passwordValidator,
               ),
               SizedBox(height: 15.0),
-              TextFormFrave(
-                hintText: 'Repeat Password',
-                controller: passController,
-                prefixIcon: Icon(Icons.vpn_key_rounded),
-                isPassword: true,
-                validator: (val) => MatchValidator(errorText: 'Password do not macth ').validateMatch(val!, passowrdController.text)
-              ),
+              TextFormGaurav(
+                  hintText: 'Repeat Password',
+                  controller: passController,
+                  prefixIcon: Icon(Icons.vpn_key_rounded),
+                  isPassword: true,
+                  validator: (val) =>
+                      MatchValidator(errorText: 'Password do not macth ')
+                          .validateMatch(val!, passowrdController.text)),
               SizedBox(height: 25.0),
-
               Row(
                 children: const [
                   Icon(Icons.check_circle_rounded, color: Color(0xff0C6CF2)),
-                  TextFrave(text: ' I Agree to BooksMandala ', fontSize: 15,color: Colors.white),
-                  TextFrave(text: ' Terms of Use', fontSize: 15, fontWeight: FontWeight.bold, color: Color(0xff0C6CF2)),
+                  TextGaurav(
+                    text: ' I Agree to BookMandala ',
+                    fontSize: 15,
+                  ),
+                  TextGaurav(
+                      text: ' Terms of Use',
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xff0C6CF2)),
                 ],
               ),
-
               SizedBox(height: 25.0),
               BtnFrave(
                 text: 'Sign Up',
                 width: size.width,
                 fontSize: 20,
-                onPressed: (){
-                  if( _formKey.currentState!.validate() ){
-                    userBloc.add( OnAddNewUser( 
-                      userController.text.trim(), 
-                      emailController.text.trim(), 
-                      passowrdController.text.trim()
-                    ));
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    userBloc.add(OnAddNewUser(
+                        userController.text.trim(),
+                        emailController.text.trim(),
+                        passowrdController.text.trim()));
                   }
                 },
               )
             ],
           ),
         ),
-       ),
+      ),
     );
   }
 }
-
-

@@ -9,7 +9,7 @@ class AddCreditCardPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
           backgroundColor: Colors.white,
-          title: const TextFrave(
+          title: const TextGaurav(
               text: 'Add Cards',
               color: ColorsFrave.primaryColorFrave,
               fontWeight: FontWeight.w600),

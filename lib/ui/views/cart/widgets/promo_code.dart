@@ -17,7 +17,7 @@ class PromoCode extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const TextFrave(
+          const TextGaurav(
             text: 'Promo',
             fontSize: 19,
           ),
@@ -49,7 +49,7 @@ class PromoCode extends StatelessWidget {
                     color: ColorsFrave.primaryColorFrave,
                     borderRadius: BorderRadius.circular(5.0)),
                 child: const Center(
-                    child: TextFrave(
+                    child: TextGaurav(
                   text: 'Use Code',
                   color: Colors.white,
                   fontSize: 18,

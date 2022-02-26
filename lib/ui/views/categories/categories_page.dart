@@ -24,7 +24,7 @@ class CategoriesPage extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
         elevation: 0,
-        title: const TextFrave(
+        title: const TextGaurav(
             text: 'Categories',
             color: Colors.black87,
             fontWeight: FontWeight.w500,
@@ -80,7 +80,7 @@ class _ListCategories extends StatelessWidget {
                 SvgPicture.network(URLS.baseUrl + categories[i].picture,
                     height: 85, color: ColorsFrave.primaryColorFrave),
                 const SizedBox(height: 10.0),
-                TextFrave(
+                TextGaurav(
                     text: categories[i].category,
                     fontSize: 20,
                     overflow: TextOverflow.ellipsis)

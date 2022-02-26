@@ -25,15 +25,15 @@ class WithoutProductsCart extends StatelessWidget {
                             color:
                                 ColorsFrave.primaryColorFrave.withOpacity(.7)),
                         const SizedBox(height: 20),
-                        const TextFrave(
+                        const TextGaurav(
                             text: 'There is a cart to fill!',
                             fontSize: 20,
                             fontWeight: FontWeight.bold),
                         const SizedBox(height: 20),
-                        const TextFrave(
+                        const TextGaurav(
                             text: 'Currently do not have ', fontSize: 16),
                         const SizedBox(height: 5),
-                        const TextFrave(
+                        const TextGaurav(
                             text: 'any products in your shopping cart',
                             fontSize: 16),
                         const SizedBox(height: 40),
@@ -46,7 +46,7 @@ class WithoutProductsCart extends StatelessWidget {
                                 padding: MaterialStateProperty.all(
                                     EdgeInsets.symmetric(
                                         horizontal: 40, vertical: 10))),
-                            child: const TextFrave(
+                            child: const TextGaurav(
                                 text: 'Go Products', fontSize: 19),
                             onPressed: () => Navigator.of(context)
                                 .pushAndRemoveUntil(

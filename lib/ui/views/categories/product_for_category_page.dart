@@ -41,7 +41,7 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
       child: Scaffold(
           backgroundColor: Color(0xfff5f5f5),
           appBar: AppBar(
-            title: TextFrave(
+            title: TextGaurav(
                 text: widget.category,
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
@@ -107,11 +107,11 @@ class _CategoryProductsPageState extends State<CategoryProductsPage> {
                                                     height: 120)),
                                           ),
                                           const SizedBox(height: 10.0),
-                                          TextFrave(
+                                          TextGaurav(
                                               text:
                                                   snapshot.data![i].nameProduct,
                                               fontWeight: FontWeight.w500),
-                                          TextFrave(
+                                          TextGaurav(
                                               text:
                                                   '\$ ${snapshot.data![i].price}',
                                               fontSize: 16),

@@ -35,7 +35,7 @@ class AppBarProduct extends StatelessWidget {
         ),
         Container(
           width: 250,
-          child: TextFrave(text: nameProduct, overflow: TextOverflow.ellipsis, fontSize: 19, color: Colors.grey)
+          child: TextGaurav(text: nameProduct, overflow: TextOverflow.ellipsis, fontSize: 19, color: Colors.grey)
         ),
         CircleAvatar(
           backgroundColor: Color(0xffF5F5F5),

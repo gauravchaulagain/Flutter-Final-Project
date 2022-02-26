@@ -53,7 +53,7 @@ class CardItemProfile extends StatelessWidget {
                       child: Icon(icon, color: Colors.white,),
                     ),
                     SizedBox(width: 10.0),
-                    TextFrave(text: text, fontSize: 18,),
+                    TextGaurav(text: text, fontSize: 18,),
                   ],
                 ),
               )

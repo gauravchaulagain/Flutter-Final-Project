@@ -1,7 +1,6 @@
 part of 'helpers.dart';
 
-void modalAddCartSuccess( BuildContext context, String image ){
-
+void modalAddCartSuccess(BuildContext context, String image) {
   showDialog(
     context: context,
     barrierColor: Colors.white60,
@@ -9,20 +8,30 @@ void modalAddCartSuccess( BuildContext context, String image ){
       return BounceInDown(
         child: AlertDialog(
           backgroundColor: Colors.white,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
           content: Container(
             height: 130,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const TextFrave(text: 'Frave Shop', fontSize: 22, color: ColorsFrave.primaryColorFrave, fontWeight: FontWeight.w500),
+                const TextGaurav(
+                    text: 'BookMandala',
+                    fontSize: 22,
+                    color: ColorsFrave.primaryColorFrave,
+                    fontWeight: FontWeight.w500),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Image.network(URLS.baseUrl + image, height: 80.0,),
+                    Image.network(
+                      URLS.baseUrl + image,
+                      height: 80.0,
+                    ),
                     SizedBox(width: 10.0),
-                    BounceInLeft(child: Icon(Icons.check_circle_outlined, color: Colors.green, size: 80 )),
+                    BounceInLeft(
+                        child: Icon(Icons.check_circle_outlined,
+                            color: Colors.green, size: 80)),
                   ],
                 ),
               ],
@@ -32,5 +41,4 @@ void modalAddCartSuccess( BuildContext context, String image ){
       );
     },
   );
-
 }

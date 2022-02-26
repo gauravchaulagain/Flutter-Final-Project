@@ -24,13 +24,13 @@ class PaymentCreditCart extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const TextFrave(text: 'Payment', fontSize: 19, fontWeight: FontWeight.w600 ),
+              const TextGaurav(text: 'Payment', fontSize: 19, fontWeight: FontWeight.w600 ),
               GestureDetector(
                 child: BlocBuilder<CartBloc, CartState>(
                   builder: (context, state) 
                     => ( !state.cardActive! )
-                    ? const TextFrave(text: 'Add', color: Colors.blue, fontSize: 18 )
-                    : const TextFrave(text: 'Change', color: Colors.blue, fontSize: 18 )
+                    ? const TextGaurav(text: 'Add', color: Colors.blue, fontSize: 18 )
+                    : const TextGaurav(text: 'Change', color: Colors.blue, fontSize: 18 )
                 ),
                 onTap: () => Navigator.push(context, routeSlide(page: PaymentCardPage())) 
               )
@@ -41,7 +41,7 @@ class PaymentCreditCart extends StatelessWidget {
           BlocBuilder<CartBloc, CartState>(
             builder: (_, state) 
               => ( !state.cardActive! ) 
-                ? const TextFrave(text: 'Without Credit Card', fontSize: 18)
+                ? const TextGaurav(text: 'Without Credit Card', fontSize: 18)
                 : Container(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
                   color: Color(0xfff5f5f5),
@@ -53,7 +53,7 @@ class PaymentCreditCart extends StatelessWidget {
                         child: SvgPicture.asset('Assets/${state.creditCardFrave!.brand}.svg' )
                       ),
                       const SizedBox(width: 15.0),
-                      TextFrave(text: '**** **** **** ${state.creditCardFrave!.cardNumberHidden}', fontSize: 18,)
+                      TextGaurav(text: '**** **** **** ${state.creditCardFrave!.cardNumberHidden}', fontSize: 18,)
                     ],
                   ),
                 )

@@ -34,8 +34,8 @@ class StartHomePage extends StatelessWidget {
                           )
                         ),
                         SizedBox(height: 15.0),
-                        TextFrave(text: 'FRAVE SHOP', fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white),
-                        TextFrave(text: 'All your products in your hands', fontSize: 20, color: Colors.white70),
+                        TextGaurav(text: 'BookMandala', fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white),
+                        TextGaurav(text: 'All Books in your hands', fontSize: 20, color: Colors.white70),
                       ],
                     ),
                   ),
@@ -66,9 +66,9 @@ class StartHomePage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            TextFrave(text: 'Already have an account?', fontSize: 17),
+                            TextGaurav(text: 'Already have an account?', fontSize: 17),
                             TextButton(
-                              child: TextFrave(text: 'Sign In', fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                              child: TextGaurav(text: 'Sign In', fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
                               onPressed: () => Navigator.of(context).pushNamed('signInPage'),
                             ),
                           ],

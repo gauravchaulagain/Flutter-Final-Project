@@ -61,11 +61,11 @@ class ListProductsForHome extends StatelessWidget {
                                       URLS.baseUrl + snapshot.data![i].picture,
                                       height: 120)),
                             ),
-                            TextFrave(
+                            TextGaurav(
                                 text: snapshot.data![i].nameProduct,
                                 fontSize: 17,
                                 overflow: TextOverflow.ellipsis),
-                            TextFrave(
+                            TextGaurav(
                                 text: '\$ ${snapshot.data![i].price}',
                                 fontSize: 16),
                           ],

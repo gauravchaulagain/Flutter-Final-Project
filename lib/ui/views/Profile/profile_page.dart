@@ -129,7 +129,7 @@ class _ListProfileState extends State<ListProfile> {
                                     radius: 40,
                                     backgroundColor:
                                         ColorsFrave.primaryColorFrave,
-                                    child: TextFrave(
+                                    child: TextGaurav(
                                         text: state.user!.users
                                             .substring(0, 2)
                                             .toUpperCase(),
@@ -176,7 +176,7 @@ class _ListProfileState extends State<ListProfile> {
                           BounceInRight(
                             child: Align(
                                 alignment: Alignment.center,
-                                child: TextFrave(
+                                child: TextGaurav(
                                     text: state.user!.users,
                                     fontSize: 21,
                                     fontWeight: FontWeight.w500)),
@@ -184,7 +184,7 @@ class _ListProfileState extends State<ListProfile> {
                           FadeInRight(
                             child: Align(
                                 alignment: Alignment.center,
-                                child: TextFrave(
+                                child: TextGaurav(
                                     text: state.user!.email,
                                     fontSize: 18,
                                     color: Colors.grey)),
@@ -236,7 +236,7 @@ class _ListProfileState extends State<ListProfile> {
         const SizedBox(height: 15.0),
         Padding(
           padding: const EdgeInsets.only(left: 25.0),
-          child: const TextFrave(
+          child: const TextGaurav(
             text: 'General',
             fontSize: 17,
             color: Colors.grey,
@@ -292,7 +292,7 @@ class _ListProfileState extends State<ListProfile> {
         const SizedBox(height: 15.0),
         Padding(
           padding: EdgeInsets.only(left: 25.0),
-          child: const TextFrave(
+          child: const TextGaurav(
             text: 'Personal',
             fontSize: 17,
             color: Colors.grey,

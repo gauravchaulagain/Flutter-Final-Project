@@ -33,7 +33,7 @@ class _FavoritePageState extends State<FavoritePage> {
       child: Scaffold(
         backgroundColor: Color(0xffF5F5F5),
         appBar: AppBar(
-          title: const TextFrave(
+          title: const TextGaurav(
               text: 'Favorites',
               color: Colors.black,
               fontSize: 20,

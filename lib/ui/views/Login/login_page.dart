@@ -67,7 +67,7 @@ class _SignInPageState extends State<SignInPage> {
           ),
           actions: [
             TextButton(
-              child: TextFrave(text: 'Register', fontSize: 18, color: Color.fromARGB(255, 236, 18, 54),),
+              child: TextGaurav(text: 'Register', fontSize: 18, color: Color(0xff0C6CF2),),
               onPressed: () => Navigator.of(context).pushReplacementNamed('signUpPage'),
             )
           ],
@@ -83,12 +83,12 @@ class _SignInPageState extends State<SignInPage> {
               children: [
     
                 const SizedBox(height: 20),
-                const TextFrave(text: 'Welcome Back!', fontSize: 34, fontWeight: FontWeight.bold, color: Color(0xff0C6CF2)),
+                const TextGaurav(text: 'Welcome Back!', fontSize: 34, fontWeight: FontWeight.bold, color: Color(0xff0C6CF2)),
                 const SizedBox(height: 5),
-                const TextFrave(text: 'Sign In to your account', fontSize: 18),
+                const TextGaurav(text: 'Sign In to your account', fontSize: 18),
                 const SizedBox(height: 35),
     
-                TextFormFrave(
+                TextFormGaurav(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   validator: validatedEmail,
@@ -96,7 +96,7 @@ class _SignInPageState extends State<SignInPage> {
                   prefixIcon: Icon(Icons.alternate_email_rounded),
                 ),
                 const SizedBox(height: 20),
-                TextFormFrave(
+                TextFormGaurav(
                   controller: _passowrdController,
                   isPassword: isChangeSuffixIcon,
                   hintText: 'Enter your password',
@@ -120,7 +120,7 @@ class _SignInPageState extends State<SignInPage> {
                 Align(
                   alignment: Alignment.center,
                   child: TextButton(
-                    child: TextFrave(text: 'Forgot password?', color: Colors.black, fontSize: 17),
+                    child: TextGaurav(text: 'Forgot password?', color: Colors.black, fontSize: 17),
                     onPressed: () => Navigator.push(context, routeSlide(page: LoadingPage()))
                   ),
                 ),

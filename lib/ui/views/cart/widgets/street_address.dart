@@ -22,7 +22,7 @@ class StreetAddressCheckout extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const TextFrave(
+              const TextGaurav(
                   text: 'Shipping address',
                   fontSize: 19,
                   fontWeight: FontWeight.w600),
@@ -30,7 +30,7 @@ class StreetAddressCheckout extends StatelessWidget {
                   buildWhen: (previous, current) => previous != current,
                   builder: (context, state) => state.user != null
                       ? GestureDetector(
-                          child: TextFrave(
+                          child: TextGaurav(
                               text:
                                   state.user!.address == '' ? 'Add' : 'Change',
                               color: Colors.blue,
@@ -46,9 +46,9 @@ class StreetAddressCheckout extends StatelessWidget {
           BlocBuilder<UserBloc, UserState>(
               builder: (_, state) => state.user != null
                   ? state.user!.address == ''
-                      ? const TextFrave(
+                      ? const TextGaurav(
                           text: 'Without Street Address', fontSize: 18)
-                      : TextFrave(text: '${state.user!.address}', fontSize: 18)
+                      : TextGaurav(text: '${state.user!.address}', fontSize: 18)
                   : const ShimmerFrave())
         ],
       ),

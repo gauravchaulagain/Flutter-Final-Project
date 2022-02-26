@@ -18,7 +18,7 @@ class PaymentCardPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const TextFrave(
+        title: const TextGaurav(
             text: 'Payment',
             color: Colors.black,
             fontSize: 21,
@@ -33,7 +33,7 @@ class PaymentCardPage extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () {},
-            child: TextFrave(
+            child: TextGaurav(
                 text: 'Add Card',
                 color: ColorsFrave.primaryColorFrave,
                 fontSize: 17),
@@ -69,7 +69,7 @@ class PaymentCardPage extends StatelessWidget {
                         width: 80,
                         child: SvgPicture.asset('Assets/${card.brand}.svg')),
                     Container(
-                        child: TextFrave(
+                        child: TextGaurav(
                             text: '**** **** **** ${card.cardNumberHidden}')),
                     Container(
                         child: state.creditCardFrave == null

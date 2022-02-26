@@ -59,9 +59,9 @@ class ProductFavorite extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.network( URLS.baseUrl + product.picture, height: 120 ),
-                TextFrave(text: product.nameProduct, fontSize: 17, overflow: TextOverflow.ellipsis ),
+                TextGaurav(text: product.nameProduct, fontSize: 17, overflow: TextOverflow.ellipsis ),
                 const SizedBox(height: 10.0),
-                TextFrave(text: '\$ ${product.price}', fontSize: 21, fontWeight: FontWeight.bold),
+                TextGaurav(text: '\$ ${product.price}', fontSize: 21, fontWeight: FontWeight.bold),
               ],
             ),
             Positioned(

@@ -9,7 +9,7 @@ final List<CreditCardFrave> cards = [
     brand: 'visa',
     cvv: '123',
     expiracyDate: '01/25',
-    cardHolderName: 'Frave Developer'
+    cardHolderName: ' Gaurav Chaulagain '
   ),
   CreditCardFrave(
     cardNumberHidden: '5555',
@@ -17,7 +17,7 @@ final List<CreditCardFrave> cards = [
     brand: 'mastercard',
     cvv: '213',
     expiracyDate: '01/25',
-    cardHolderName: 'Frave Programmer'
+    cardHolderName: 'Anurag Timalsina'
   ),
   CreditCardFrave(
     cardNumberHidden: '3782',
@@ -25,7 +25,7 @@ final List<CreditCardFrave> cards = [
     brand: 'american express',
     cvv: '2134',
     expiracyDate: '01/25',
-    cardHolderName: 'Franklin Perez'
+    cardHolderName: 'Prabesh Pathak'
   ),
 
 ];

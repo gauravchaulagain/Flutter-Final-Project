@@ -30,7 +30,7 @@ class ListCategoriesHome extends StatelessWidget {
                         color: Color(0xff0C6CF2).withOpacity(.1),
                         borderRadius: BorderRadius.circular(10.0)),
                     child: Center(
-                        child: TextFrave(
+                        child: TextGaurav(
                       text: snapshot.data![i].category,
                       color: ColorsFrave.primaryColorFrave,
                       overflow: TextOverflow.ellipsis,

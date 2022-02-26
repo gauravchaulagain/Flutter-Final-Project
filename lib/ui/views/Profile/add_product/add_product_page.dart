@@ -12,6 +12,8 @@ import 'package:form_field_validator/form_field_validator.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import '../../../../Service/finger_auth.dart';
+
 class AddProductPage extends StatefulWidget {
   AddProductPage({Key? key}) : super(key: key);
 
@@ -73,7 +75,7 @@ class _AddProductPageState extends State<AddProductPage> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: const TextFrave(
+          title: const TextGaurav(
               text: 'Add New Product',
               fontSize: 20,
               fontWeight: FontWeight.bold),
@@ -87,19 +89,24 @@ class _AddProductPageState extends State<AddProductPage> {
           ),
           actions: [
             TextButton(
-                onPressed: () {
-                  if (_keyForm.currentState!.validate()) {
-                    productBloc.add(OnSaveNewProductEvent(
-                        _nameProductController.text.trim(),
-                        _descriptionProductController.text.trim(),
-                        _stockController.text.trim(),
-                        _priceController.text.trim(),
-                        categoryBloc.state.uidCategory.toString(),
-                        productBloc.state.pathImage!));
+                onPressed: () async {
+                  final isAuthenticate = await LocalAuthApi.authenticate();
+                  if (isAuthenticate == true) {
+                    if (_keyForm.currentState!.validate()) {
+                      productBloc.add(OnSaveNewProductEvent(
+                          _nameProductController.text.trim(),
+                          _descriptionProductController.text.trim(),
+                          _stockController.text.trim(),
+                          _priceController.text.trim(),
+                          categoryBloc.state.uidCategory.toString(),
+                          productBloc.state.pathImage!));
+                    }
+                  } else {
+                    return;
                   }
                 },
-                child: const TextFrave(
-                    text: 'Save',
+                child: const TextGaurav(
+                    text: 'Verify',
                     color: ColorsFrave.primaryColorFrave,
                     fontWeight: FontWeight.w500))
           ],
@@ -152,14 +159,14 @@ class _AddProductPageState extends State<AddProductPage> {
                 ),
               ),
               const SizedBox(height: 20.0),
-              TextFormFrave(
+              TextFormGaurav(
                 controller: _nameProductController,
                 prefixIcon: const Icon(Icons.add),
                 hintText: 'Name Product',
                 validator: RequiredValidator(errorText: 'name is required'),
               ),
               const SizedBox(height: 20.0),
-              TextFormFrave(
+              TextFormGaurav(
                 controller: _descriptionProductController,
                 prefixIcon: const Icon(Icons.add),
                 hintText: 'Description Product',
@@ -167,7 +174,7 @@ class _AddProductPageState extends State<AddProductPage> {
                     RequiredValidator(errorText: 'Description is required'),
               ),
               const SizedBox(height: 20.0),
-              TextFormFrave(
+              TextFormGaurav(
                 controller: _stockController,
                 prefixIcon: const Icon(Icons.add),
                 hintText: 'Stock',
@@ -175,7 +182,7 @@ class _AddProductPageState extends State<AddProductPage> {
                 validator: RequiredValidator(errorText: 'Stock is required'),
               ),
               const SizedBox(height: 20.0),
-              TextFormFrave(
+              TextFormGaurav(
                 controller: _priceController,
                 prefixIcon: const Icon(Icons.add),
                 hintText: 'Price',
@@ -196,10 +203,10 @@ class _AddProductPageState extends State<AddProductPage> {
                         borderRadius: BorderRadius.circular(10.0)),
                     child: BlocBuilder<CategoryBloc, CategoryState>(
                         builder: (_, state) => state.uidCategory != null
-                            ? TextFrave(
+                            ? TextGaurav(
                                 text: state.nameCategory!,
                                 color: Colors.black54)
-                            : TextFrave(
+                            : TextGaurav(
                                 text: 'Select Category',
                                 color: Colors.black54))),
               ),
