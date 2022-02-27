@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:e_commers/Bloc/product/product_bloc.dart';
 import 'package:e_commers/Helpers/helpers.dart';
 import 'package:e_commers/ui/Views/Categories/categories_page.dart';
@@ -9,7 +11,8 @@ import 'package:e_commers/ui/Views/Home/widgets/header_home.dart';
 import 'package:e_commers/ui/Views/Home/widgets/list_categories_home.dart';
 import 'package:e_commers/ui/Views/Home/widgets/list_products_home.dart';
 import 'package:e_commers/ui/widgets/widgets.dart';
-
+import '../cart/cart_page.dart';
+import 'package:sensors_plus/sensors_plus.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -17,20 +20,50 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<double>? _userAccelerometerValues;
+  final _streamSubscriptions = <StreamSubscription<dynamic>>[];
 
   @override
-  Widget build(BuildContext context){
+  void dispose() {
+    super.dispose();
+    for (final subscription in _streamSubscriptions) {
+      subscription.cancel();
+    }
+  }
 
-    final size =  MediaQuery.of(context).size;
+  @override
+  void initState() {
+    super.initState();
+    _streamSubscriptions.add(
+      userAccelerometerEvents.listen(
+        (UserAccelerometerEvent event) {
+          setState(() {
+            _userAccelerometerValues = <double>[event.x, event.y, event.z];
+          });
+          if (_userAccelerometerValues != null) {
+            if (_userAccelerometerValues![1] > 2 &&
+                _userAccelerometerValues![1] < 4) {
+              Navigator.of(context).pushAndRemoveUntil(
+                  routeSlide(page: CartPage()), (_) => false);
+            }
+          }
+        },
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
 
     return BlocListener<ProductBloc, ProductState>(
-      listener: (context, state){
-        if( state is LoadingProductState ){
+      listener: (context, state) {
+        if (state is LoadingProductState) {
           modalLoadingShort(context);
-        }else if( state is FailureProductState ){
+        } else if (state is FailureProductState) {
           Navigator.pop(context);
           errorMessageSnack(context, state.error);
-        }else if( state is SuccessProductState ){
+        } else if (state is SuccessProductState) {
           Navigator.pop(context);
           setState(() {});
         }
@@ -39,28 +72,21 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Color(0xfff5f5f5),
         body: Stack(
           children: [
-    
             ListHome(),
-            
             Positioned(
               bottom: 20,
               child: Container(
-                width: size.width,
-                child: Align(
-                  alignment: Alignment.center,
-                  child: BottomNavigationFrave(index: 1)
-                )
-              ),
+                  width: size.width,
+                  child: Align(
+                      alignment: Alignment.center,
+                      child: BottomNavigationFrave(index: 1))),
             ),
-    
-            
           ],
         ),
-       ),
+      ),
     );
   }
 }
-
 
 class ListHome extends StatefulWidget {
   @override
@@ -68,28 +94,26 @@ class ListHome extends StatefulWidget {
 }
 
 class _ListHomeState extends State<ListHome> {
-
   late ScrollController _scrollControllerHome;
   double scrollPrevious = 0;
 
   @override
   void initState() {
-    
     _scrollControllerHome = ScrollController();
     _scrollControllerHome.addListener(addListenerMenu);
     super.initState();
   }
 
-  void addListenerMenu(){
-
-    if( _scrollControllerHome.offset > scrollPrevious ){
-      BlocProvider.of<GeneralBloc>(context).add( OnShowOrHideMenuEvent(showMenu: false));
+  void addListenerMenu() {
+    if (_scrollControllerHome.offset > scrollPrevious) {
+      BlocProvider.of<GeneralBloc>(context)
+          .add(OnShowOrHideMenuEvent(showMenu: false));
     } else {
-      BlocProvider.of<GeneralBloc>(context).add( OnShowOrHideMenuEvent(showMenu: true));
+      BlocProvider.of<GeneralBloc>(context)
+          .add(OnShowOrHideMenuEvent(showMenu: true));
     }
 
     scrollPrevious = _scrollControllerHome.offset;
-
   }
 
   @override
@@ -100,71 +124,63 @@ class _ListHomeState extends State<ListHome> {
   }
 
   @override
-  Widget build(BuildContext context){
-
+  Widget build(BuildContext context) {
     return SafeArea(
       child: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
         controller: _scrollControllerHome,
         children: [
-          
           const HeaderHome(),
-
-
           const SizedBox(height: 10.0),
           const CardCarousel(),
-
           const SizedBox(height: 15.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const TextGaurav(text: 'Categories', fontSize: 18, fontWeight: FontWeight.w600,),
+              const TextGaurav(
+                text: 'Categories',
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
               GestureDetector(
-                onTap: () => Navigator.of(context).push(routeSlide(page: CategoriesPage())),
+                onTap: () => Navigator.of(context)
+                    .push(routeSlide(page: CategoriesPage())),
                 child: Row(
                   children: const [
-                    TextGaurav(text: 'See All', fontSize: 17 ),
+                    TextGaurav(text: 'See All', fontSize: 17),
                     SizedBox(width: 5.0),
-                    Icon(Icons.arrow_forward_ios_rounded, size: 18, color: Color(0xff006CF2))
+                    Icon(Icons.arrow_forward_ios_rounded,
+                        size: 18, color: Color(0xff006CF2))
                   ],
                 ),
               ),
             ],
           ),
-
           const SizedBox(height: 15.0),
           const ListCategoriesHome(),
-
           const SizedBox(height: 15.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const TextGaurav(text: 'Popular Products', fontSize: 18, fontWeight: FontWeight.w600,),
+              const TextGaurav(
+                text: 'Popular Products',
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
               Row(
                 children: const [
-                  TextGaurav(text: 'See All', fontSize: 17 ),
+                  TextGaurav(text: 'See All', fontSize: 17),
                   SizedBox(width: 5.0),
-                  Icon(Icons.arrow_forward_ios_rounded, size: 18, color: Color(0xff006CF2))
+                  Icon(Icons.arrow_forward_ios_rounded,
+                      size: 18, color: Color(0xff006CF2))
                 ],
               ),
             ],
           ),
-
           const SizedBox(height: 15.0),
           ListProductsForHome()
-
         ],
       ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
