@@ -1,3 +1,4 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:e_commers/Bloc/auth/auth_bloc.dart';
 import 'package:e_commers/Bloc/user/user_bloc.dart';
 import 'package:e_commers/Helpers/validation_form.dart';
@@ -8,14 +9,25 @@ import 'package:e_commers/ui/Views/Login/loading_page.dart';
 import 'package:e_commers/ui/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class SignInPage extends StatefulWidget {
   @override
   _SignInPageState createState() => _SignInPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+void notify() async {
+  await AwesomeNotifications().createNotification(
+    content: NotificationContent(
+        id: 1,
+        channelKey: 'key1',
+        title: 'Just a notification',
+        body: 'YOu just signed in',
+        notificationLayout: NotificationLayout.BigPicture,
+        bigPicture:
+            'https://images.idgesg.net/images/article/2019/01/android-q-notification-inbox-100785464-large.jpg?auto=webp&quality=85,70%27'),
+  );
+}
 
+class _SignInPageState extends State<SignInPage> {
   late TextEditingController _emailController;
   late TextEditingController _passowrdController;
   final _keyForm = GlobalKey<FormState>();
@@ -38,23 +50,23 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   @override
-  Widget build(BuildContext context){
-
+  Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final userBloc = BlocProvider.of<UserBloc>(context);
     final authBloc = BlocProvider.of<AuthBloc>(context);
 
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
-        if( state is LoadingAuthState ){
+        if (state is LoadingAuthState) {
           modalLoading(context, 'Checking...');
-        }else if( state is FailureAuthState ){
+        } else if (state is FailureAuthState) {
           Navigator.pop(context);
           errorMessageSnack(context, state.error);
-        }else if( state is SuccessAuthState ){
+        } else if (state is SuccessAuthState) {
           Navigator.pop(context);
           userBloc.add(OnGetUserEvent());
-          Navigator.pushAndRemoveUntil(context, routeSlide(page: HomePage()), (_) => false);
+          Navigator.pushAndRemoveUntil(
+              context, routeSlide(page: HomePage()), (_) => false);
         }
       },
       child: Scaffold(
@@ -63,12 +75,17 @@ class _SignInPageState extends State<SignInPage> {
           leading: IconButton(
             splashRadius: 20,
             icon: Icon(Icons.close_rounded, size: 25, color: Colors.black),
-            onPressed: ()=> Navigator.pop(context),
+            onPressed: () => Navigator.pop(context),
           ),
           actions: [
             TextButton(
-              child: TextGaurav(text: 'Register', fontSize: 18, color: Color(0xff0C6CF2),),
-              onPressed: () => Navigator.of(context).pushReplacementNamed('signUpPage'),
+              child: TextGaurav(
+                text: 'Register',
+                fontSize: 18,
+                color: Color(0xff0C6CF2),
+              ),
+              onPressed: () =>
+                  Navigator.of(context).pushReplacementNamed('signUpPage'),
             )
           ],
           elevation: 0,
@@ -81,13 +98,15 @@ class _SignInPageState extends State<SignInPage> {
               padding: EdgeInsets.symmetric(horizontal: 10.0),
               physics: BouncingScrollPhysics(),
               children: [
-    
                 const SizedBox(height: 20),
-                const TextGaurav(text: 'Welcome Back!', fontSize: 34, fontWeight: FontWeight.bold, color: Color(0xff0C6CF2)),
+                const TextGaurav(
+                    text: 'Welcome Back!',
+                    fontSize: 34,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xff0C6CF2)),
                 const SizedBox(height: 5),
                 const TextGaurav(text: 'Sign In to your account', fontSize: 18),
                 const SizedBox(height: 35),
-    
                 TextFormGaurav(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
@@ -103,33 +122,35 @@ class _SignInPageState extends State<SignInPage> {
                   prefixIcon: Icon(Icons.password_rounded),
                   validator: passwordValidator,
                 ),
-                const SizedBox(height:  40),
-    
+                const SizedBox(height: 40),
                 BtnFrave(
-                  text: 'Continue',
+                  text: 'Login',
                   width: size.width,
                   fontSize: 20,
-                  onPressed: (){
-                    if( _keyForm.currentState!.validate() ){
-                      authBloc.add(LoginEvent(_emailController.text.trim(), _passowrdController.text.trim()));
+                  onPressed: () {
+                    if (_keyForm.currentState!.validate()) {
+                      authBloc.add(LoginEvent(_emailController.text.trim(),
+                          _passowrdController.text.trim()));
+                      notify();
                     }
                   },
                 ),
-    
                 const SizedBox(height: 10),
                 Align(
                   alignment: Alignment.center,
                   child: TextButton(
-                    child: TextGaurav(text: 'Forgot password?', color: Colors.black, fontSize: 17),
-                    onPressed: () => Navigator.push(context, routeSlide(page: LoadingPage()))
-                  ),
+                      child: TextGaurav(
+                          text: 'Forgot password?',
+                          color: Colors.black,
+                          fontSize: 17),
+                      onPressed: () => Navigator.push(
+                          context, routeSlide(page: LoadingPage()))),
                 ),
-    
               ],
             ),
           ),
         ),
-       ),
+      ),
     );
   }
 }

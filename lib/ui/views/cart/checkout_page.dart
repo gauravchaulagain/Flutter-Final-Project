@@ -1,4 +1,5 @@
 
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:e_commers/Bloc/product/product_bloc.dart';
 import 'package:e_commers/Helpers/helpers.dart';
 import 'package:e_commers/ui/Views/Home/home_page.dart';
@@ -9,6 +10,21 @@ import 'package:e_commers/ui/Views/cart/widgets/street_address.dart';
 import 'package:e_commers/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+
+void notify() async {
+  await AwesomeNotifications().createNotification(
+    content: NotificationContent(
+        id: 2,
+        channelKey: 'key1',
+        title: 'Just a notification',
+        body: 'YOu just signed in',
+        notificationLayout: NotificationLayout.BigPicture,
+        bigPicture:
+            'https://images.idgesg.net/images/article/2019/01/android-q-notification-inbox-100785464-large.jpg?auto=webp&quality=85,70%27'),
+  );
+}
+
 
 
 class CheckOutPage extends StatelessWidget{
@@ -106,6 +122,7 @@ class CheckOutPage extends StatelessWidget{
                     productBloc.add( 
                       OnSaveProductsBuyToDatabaseEvent('${productBloc.state.total}', productBloc.product ) 
                     );
+                    notify();
                 },
               ),
             )
